@@ -1,0 +1,28 @@
+<!-- ! 치고 엔터 누르면 html 기본 설정이 나옴 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script</title>
+    <link rel="stylesheet" href="test.css">
+    <script>
+        // 이벤트를 연결합니다.
+        window.onload = function () {
+            let cnt = 0;
+            let images = document.getElementById('image');
+            let frame = [
+                '0.png','1.png','2.png','3.png','4.png','5.png','6.png','7.png','8.png','9.png','10.png','11.png','12.png','13.png','14.png'
+            ];
+
+            setInterval(function(){
+                images.src = frame[cnt % frame.length];
+                cnt = cnt + 1;
+            }, 1000/20);
+        };
+    </script>
+</head>
+<body>
+    <img src="" alt="" id="image">
+</body>
+</html>

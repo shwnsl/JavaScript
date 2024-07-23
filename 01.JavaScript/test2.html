@@ -1,0 +1,32 @@
+<!-- ! 치고 엔터 누르면 html 기본 설정이 나옴 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script</title>
+    <script>
+        const num = [0,1,2,3,4,5];
+        const evNum = num.filter(function (value) {
+            return value%2 === 0;
+        })
+
+        document.write(`원래 배열 : ${num}`)
+        document.write(`짝수만 : ${evNum}`)
+
+        let cnt = 0;
+        let si = setInterval(() => {
+            document.write(`1초 마다 실행됨 : ${cnt}번째<br>`);
+            cnt++;
+        }, 1000);
+
+        setTimeout(() => {
+            clearInterval(si);
+            document.write(`${cnt}번째 종료`);
+        }, 10000);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

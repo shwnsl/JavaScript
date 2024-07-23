@@ -1,0 +1,47 @@
+<!-- ! 치고 엔터 누르면 html 기본 설정이 나옴 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script</title>
+    <script>
+        let star = '';
+        //첫번째
+        for (let i = 0; i < 5; i++) {
+            document.write('★');            
+        }
+        document.write('<hr>');
+        //두번째
+        for (let i = 0; i < 5; i++) {
+            document.write('★<br>');            
+        }
+        document.write('<hr>');
+        //세번째
+        for (let i = 0; i < 5; i++) {
+            document.write('★★★★★<br>');            
+        }
+        document.write('<hr>');
+        //네번째
+        for (let i = 0; i < 5; i++) {
+            if (i<6) {
+                star+='★';
+                document.write(star+'<br>');
+            }
+        }
+        document.write('<hr>');
+        //다섯번째
+        for (let i = 5; i > 0; i--) {
+            let stars = '';
+            for (let j = 0; j < i; j++) {
+                stars+='★';
+            }
+            document.write(stars+'<br>');
+        }
+        document.write('<hr>');
+    </script>
+</head>
+<body>
+
+</body>
+</html>
