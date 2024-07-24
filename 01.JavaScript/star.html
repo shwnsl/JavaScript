@@ -4,41 +4,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Java Script</title>
+    <title>Star</title>
     <script>
-        let star = '';
+        let star = '★';
+        let br = '<br>';
+        let hr = '<hr>';
+        let sq = '&nbsp;&nbsp;&nbsp;';
         //첫번째
         for (let i = 0; i < 5; i++) {
-            document.write('★');            
+            document.write(star);            
         }
-        document.write('<hr>');
+        document.write(hr);
         //두번째
         for (let i = 0; i < 5; i++) {
-            document.write('★<br>');            
+            document.write(star,br);            
         }
-        document.write('<hr>');
+        document.write(hr);
         //세번째
         for (let i = 0; i < 5; i++) {
-            document.write('★★★★★<br>');            
+            for (let j = 0; j < 5; j++) {
+                document.write(star);                
+            }        
+            document.write(br);    
         }
-        document.write('<hr>');
+        document.write(hr);
         //네번째
         for (let i = 0; i < 5; i++) {
-            if (i<6) {
-                star+='★';
-                document.write(star+'<br>');
+            for (let j = 0; j < i + 1; j++) {
+                document.write(star)
             }
+            document.write(br)    
         }
-        document.write('<hr>');
+        document.write(hr);
         //다섯번째
         for (let i = 5; i > 0; i--) {
-            let stars = '';
             for (let j = 0; j < i; j++) {
-                stars+='★';
+                document.write(star)
             }
-            document.write(stars+'<br>');
+            document.write(br);
         }
-        document.write('<hr>');
+        document.write(hr);
+        //여섯번째
+        for (let i = 0; i < 5; i++) {
+            for (let j = 4; j > i; j--) {
+                document.write(sq);
+            } 
+            for (let k = 0; k < i + 1; k++) {
+                document.write(star);
+            }            
+            document.write(br);
+        }
+        document.write(hr);
+        //일곱번째
+        for (let i = 0; i < 5; i++) {
+            for (let k = 0; k < i; k++) {
+                document.write(sq);
+            }   
+            for (let j = 5; j > i; j--) {
+                document.write(star);
+            } 
+            document.write(br);
+        }
+        document.write(hr);
+        //여덟번째
+        for (let i = 0; i < 5; i++) {
+            for (let j = 5; j > i + 1; j--) {
+                document.write(sq);         
+            }            
+            for (let k = 0; k < i * 2 + 1; k++) {
+                document.write(star); 
+            }
+            document.write(br);
+        }
+        document.write(hr);
+        //아홉번째
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < i; j++) {
+                document.write(sq);         
+            }    
+            for (let k = 5; k > (i - 2) * 2; k--) {
+                document.write(star); 
+            }
+            document.write(br);
+        }
+        document.write(hr);
+        //열번째
+        for (let i = 0; i < 4; i++) {
+            for (let j = 5; j > i + 1; j--) {
+                document.write(sq);         
+            }            
+            for (let k = 0; k < i * 2 + 1; k++) {
+                document.write(star); 
+            }
+            document.write(br);
+        }
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < i; j++) {
+                document.write(sq);         
+            }    
+            for (let k = 5; k > (i - 2) * 2; k--) {
+                document.write(star); 
+            }
+            document.write(br);
+        }
+        document.write(hr);
     </script>
 </head>
 <body>

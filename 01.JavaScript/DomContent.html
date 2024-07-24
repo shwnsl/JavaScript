@@ -1,0 +1,26 @@
+<!-- ! 치고 엔터 누르면 html 기본 설정이 나옴 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script</title>
+    <script>
+        // HTML 태그를 쉽게 만들 수 있는 콜백 함수를 선언합니다.
+        const h1 = (text) => document.body.innerHTML += `<h1>${text}</h1>`
+    </script>
+    <script>
+        h1('1번째 script 태그')
+    </script>
+</head>
+<body>
+    <script>
+        h1('2번째 script 태그')
+    </script>
+    <h1>1번째 h1 태그</h1>
+    <script>
+        h1('3번째 script 태그')
+    </script>
+    <h1>2번째 h2 태그</h1>
+</body>
+</html>

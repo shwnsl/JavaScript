@@ -1,0 +1,64 @@
+<!-- ! 치고 엔터 누르면 html 기본 설정이 나옴 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script</title>
+    <script>
+        // DOMContentLoaded 이벤트를 연결합니다.
+        document.addEventListener('DOMContentLoaded', () => {
+            const h1 = (text) => `<h1>${text}</h1>`
+            document.body.innerHTML += h1('DOMContentLoaded 이벤트 발생')
+            //문서 객체를 모두 읽어들이면 이 콜백 함수가 실행됨.
+
+            const header = document.querySelector('h1');
+
+            header.textContent = 'header';
+            header.style.color = 'white';
+            header.style.backgroundColor = 'skyblue';
+            header.style.padding = '30px';
+
+            const a = document.querySelector('#a');
+            const b = document.querySelector('#b');
+
+            a.textContent = '<h1>fdssdfsdfsdfsdf</h1>'
+            b.innerHTML = '<h1>fdssdfsdfsdfsdf</h1>'
+
+            const recs = document.querySelectorAll('.rec');
+
+            recs.forEach((rec,index) => {
+                const width = (index+1)*100
+                const src = `http://placekitten.com/${width}/250`
+                rec.setAttribute('src',src);
+            });
+            
+            const header2 = document.createElement('h1');
+
+            header.textContent = 'asdjbhasdfjkfjk';
+            header.setAttribute('data-custom','사용자 정의');
+            header.style.color = 'green';
+            header.style.backgroundColor = 'pink';
+
+            document.body.appendChild(header2);
+
+            let cnt = 0;
+
+            header.addEventListener('click',(ev) => {
+                cnt++;
+                header.textContent = `클릭 횟수 : ${cnt}`
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="a"></div>
+    <div id="b"></div>
+
+    <img src="" alt="" class="rec">
+    <img src="" alt="" class="rec">
+    <img src="" alt="" class="rec">
+    <img src="" alt="" class="rec">
+    <img src="" alt="" class="rec">
+</body>
+</html>
