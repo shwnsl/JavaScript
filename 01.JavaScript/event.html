@@ -1,0 +1,338 @@
+<!-- ! 치고 엔터 누르면 html 기본 설정이 나옴 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <script>
+        document.addEventListener('DOMContentLoaded',() => {
+
+            const textArea = document.querySelector('textarea');
+            const h1 = document.querySelector('h1');
+
+            textArea.addEventListener('keyup',(event) => {
+                const length = textArea.value.length;
+                h1.textContent = `글자수 : ${length}`
+            });
+
+            const h2 = document.querySelector('h2');
+            const print = (event) => {
+                let output = "";
+                    output += `alt : ${event.altKey}<br>`
+                    output += `ctrl : ${event.ctrlKey}<br>`
+                    output += `shift : ${event.shiftKey}<br>`
+                    output += `code : ${typeof(event.code) !== 'undefined' ? event.code : event.keyCode}<br>`;
+                    h2.innerHTML = output;
+            }
+
+            document.addEventListener('keydown',print);
+            document.addEventListener('keyup',print);
+
+            const star = document.querySelector('.star');
+            star.style.position = 'absolute';
+
+            let [x, y] = [0, 0];
+            const block = 20;
+            const printStar = () => {
+                star.style.left = `${x * block}px`;
+                star.style.top = `${y * block}px`;
+            }
+            printStar();
+
+            const [left, up, right, down] = [37, 38, 39, 40];
+            document.body.addEventListener('keydown', (event) => {
+                switch (event.keyCode) {
+                    case left:
+                        x -= 1
+                        break
+                    case up:
+                        y -= 1
+                        break
+                    case right:
+                        x += 1
+                        break
+                    case down:
+                        y += 1
+                        break
+                }
+                printStar();
+            })
+
+            const input = document.querySelector('input');
+            const button = document.querySelector('button');
+            const p = document.querySelector('p');
+
+            button.addEventListener('click', () => {
+                // 입력을 숫자로 변환
+                const inch = Number(input.value);
+                // 숫자가 아니면 리턴
+                if (isNaN(inch)) {
+                    p.textContent = '숫자를 입력해주세요'
+                    return
+                }
+                // 변환해서 출력
+                const cm = inch*2.54;
+                p.textContent = `${cm}cm`
+            })
+
+            const input2 = document.querySelector('.input2')
+            const p2 = document.querySelector('.p2')
+            const isEmail = (value) => {
+                // 골뱅이를 갖고 있고 && 골뱅이 뒤에 점이 있다면
+                return (value.indexOf('@') > 1) && (value.split('@')[1].indexOf('.') > 1)
+            }
+
+            input2.addEventListener('keyup', (event) => {
+            const value = event.currentTarget.value
+                if (isEmail(value)) {
+                    p2.style.color = 'green'
+                    p2.textContent = `이메일 형식입니다: ${value}`
+                } else {
+                    p2.style.color = 'red'
+                    p2.textContent = `이메일 형식이 아닙니다: ${value}`
+                }
+            })
+
+            const select = document.querySelector('select');
+            const p3 = document.querySelector('.p3');
+            
+            select.addEventListener('change', (event) => {
+                const options = event.currentTarget.options;
+                const index = event.currentTarget.options.selectedIndex;
+                
+                p3.textContent = `선택 : ${options[index].textContent}`
+            })
+            
+            const sel = document.querySelector('#sel');
+            const p4 = document.querySelector('.p4');
+
+            sel.addEventListener('change', (event) => {
+            const options2 = event.currentTarget.options
+            const list = []
+                for (const option of options2) {
+                    if (option.selected) {
+                        list.push(option.textContent)
+                    }
+                }
+                p4.textContent = `선택: ${list.join(',')}`
+            })
+
+            let aa;
+            let bb = 10;
+
+            const sel2 = document.querySelector('#sel2');
+            const inp = document.querySelector('#inp');
+            const span = document.querySelector('span');
+
+            const calculate = () => {
+                span.textContent = (aa * bb).toFixed(2);
+            }
+
+            sel2.addEventListener('change', (event) => {
+                const options3 = event.currentTarget.options;
+                const index3 = event.currentTarget.selectedIndex;
+                bb = Number(options3[index3].value)
+                calculate();
+            })
+            inp.addEventListener('keyup', (event) => {
+                aa = Number(event.currentTarget.value)
+                calculate()
+            })
+
+            let [timer, timerId] = [0, 0];
+            const h11 = document.querySelector('.h11');
+            const checkbox = document.querySelector('.chk');
+
+            checkbox.addEventListener('change', (evnet) => {
+                if (evnet.currentTarget.checked) {
+                    timerId = setInterval(() => {
+                        timer += 1
+                        h11.textContent = `${timer}초`
+                    }, 1000);
+                }else{
+                    clearInterval(timerId)
+                }
+                
+            })
+
+            const output = document.querySelector('#output');
+            const radios = document.querySelectorAll('[name=pet]')
+
+            radios.forEach((radio) => {
+                radio.addEventListener('change', (event) => {
+                    const current = event.currentTarget;
+                    if (current.checked) {
+                        output.textContent = `좋아하는 숫자는 ${current.value}다`
+                    }
+                })
+            });
+
+            const imgs = document.querySelectorAll('img');
+
+            imgs.forEach((img) => {
+                img.addEventListener('contextmenu', (event) => {
+                    event.preventDefault();
+                })
+            });
+
+            let status = false;
+
+            const chkbox = document.querySelector('.chkbox');
+
+            chkbox.addEventListener('change', (event) => {
+                status = event.currentTarget.checked
+            })
+
+            const link = document.querySelector('a');
+            link.addEventListener('click', (event) => {
+                if (!status) {
+                    event.preventDefault();
+                }
+            })
+
+            // 문서 객체를 가져옵니다.
+            const todo = document.querySelector('#todo')
+            const todoList = document.querySelector('#todo-list')
+            const addButton = document.querySelector('#add-button')
+
+            // 변수를 선언합니다.
+            let keyCount = 0
+
+            // 함수를 선언합니다.
+            const addTodo = () => {
+                // 입력 양식에 내용이 없으면 추가하지 않습니다.
+                if (todo.value.trim() === '') {
+                    alert('할 일을 입력해주세요.')
+                    return
+                }
+
+                // 문서 객체를 설정합니다.
+                const item = document.createElement('div')
+                const checkbox = document.createElement('input')
+                const text = document.createElement('span')
+                const button = document.createElement('button')
+
+                // 문서 객체를 식별할 키를 생성합니다.
+                const key = keyCount
+                keyCount += 1
+
+                // item 객체를 조작하고 추가합니다.
+                item.setAttribute('data-key', key)
+                item.appendChild(checkbox)
+                item.appendChild(text)
+                item.appendChild(button)
+                todoList.appendChild(item)
+
+                // checkbox 객체를 조작합니다.
+                checkbox.type = 'checkbox'
+                checkbox.addEventListener('change', (event) => {
+                    item.style.textDecoration
+                    = event.target.checked ? 'line-through' : ''
+                })
+
+                // text 객체를 조작합니다.
+                text.textContent = input.value
+
+                // button 객체를 조작합니다.
+                button.textContent = '제거하기'
+                button.addEventListener('click', () => {
+                    removeTodo(key)
+                })
+
+                // 입력 양식의 내용을 비웁니다.
+                todo.value = ''
+            }
+
+            const removeTodo = (key) => {
+                // 식별 키로 문서 객체를 제거합니다.
+                const item = document.querySelector(`[data-key="${key}"]`)
+                todoList.removeChild(item)
+            }
+
+            // 이벤트 연결
+            addButton.addEventListener('click', addTodo)
+            todo.addEventListener('keyup', (event) => {
+                // 입력 양식에서 Enter 키를 누르면 바로 addTodo() 함수를 호출합니다.
+                const ENTER = 13
+                if (event.keyCode === ENTER) {
+                    addTodo()
+                }
+            })
+
+            const p5 = document.querySelector('.p5')
+            const input4 = document.querySelector('.input4')
+            const button4 = document.querySelector('.button4')
+
+            const savedValue = localStorage.getItem(input4)
+                // localStorage.input도 가능합니다.
+                if (savedValue) {
+                    input4.value = savedValue
+                    p5.textContent = `이전 실행 때의 마지막 값: ${savedValue}`
+                }
+
+            input4.addEventListener('keyup', (event) => {
+                const value = event.currentTarget.value
+                localStorage.setItem(input4, value)
+                // localStorage.input = value도 가능합니다.
+            })
+
+            button4.addEventListener('click', (event) => {
+                localStorage.clear()
+                input4.value = ''
+            })
+        })
+    </script>
+</head>
+<body>
+    <h1></h1>
+    <textarea name="" id=""></textarea>
+    <h2></h2>
+    <div class="star">★</div>
+    <input type="text">
+    <button>계산</button>
+    <p></p>
+    <input type="text" class="input2">
+    <p class="p2"></p>
+    <select name="" id="">
+        <option value="">aaa</option>
+        <option value="">bbb</option>
+        <option value="">ccc</option>
+        <option value="">ddd</option>
+    </select>
+    <p class="p3">zzz</p>
+    <select name="" id="sel" multiple>
+        <option value="">111</option>
+        <option value="">222</option>
+        <option value="">333</option>
+        <option value="">444</option>
+        <option value="">5555</option>
+        <option value="">666</option>
+    </select>
+    <p class="p4"></p>
+    <select name="" id="sel2">
+        <option value="10">mm</option>
+        <option value="0.1">m</option>
+        <option value="0.393701">inch</option>
+    </select>
+    <input type="text" id="inp">
+    <span></span><br>
+    <input type="checkbox" class="chk">
+    <h1 class="h11"></h1>
+    <input type="radio" name="pet" value="111"><em>111</em>
+    <input type="radio" name="pet" value="222"><em>222</em>
+    <input type="radio" name="pet" value="333"><em>333</em>
+    <input type="radio" name="pet" value="444"><em>444</em>
+    <input type="radio" name="pet" value="555"><em>555</em>
+    <h3 id="output"></h3>
+    <img src="https://flexible.img.hani.co.kr/flexible/normal/700/466/imgdb/original/2021/0603/20210603504045.jpg" alt="">
+    <input type="checkbox" class="chkbox"><em>링크 활성화</em>
+    <a href="http;//hanbit.co.kr">한빛</a>
+    <input id="todo">
+    <button id="add-button">추가하기</button>
+    <div id="todo-list">
+    <p class="p5"></p>
+    <button class="button4">지우기</button>
+    <input type="text" class="input4">
+</body>
+</html>
