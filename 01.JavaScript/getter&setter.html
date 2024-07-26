@@ -1,0 +1,63 @@
+<!-- ! 치고 엔터 누르면 html 기본 설정이 나옴 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getter&Setter</title>
+    <script>
+        class Square {
+            #l 
+            constructor(l) {
+                this.setLength(l)
+            }
+
+            setLength(value) {
+                if (value <= 0) {
+                    throw '길이는 0보다 커야 한다' 
+                }
+                this.#l = value;
+            }
+
+            getLength(value) {
+                return this.#l
+            }
+            
+            getPerimeter() {return 4 * this.#l}
+            getArea() {return this.#l * this.#l}
+        }
+
+        const square = new Square(10);
+        console.log(`한변의 길이는 : ${square.getLength()}`)
+        //quare.setLength(-10)
+
+        class Square2 {
+            #l 
+            constructor(l) {
+                this.l = l
+            }
+
+            get length() {return this.#l}
+            get perimeter() {return 4 * this.#l}
+            get area() {return this.#l * this.#l}
+            set l(l) {
+                if (l <= 0) {
+                    throw '0보다 커야된다'
+                }
+                this.#l = l;
+            }
+        }
+
+        const square2 = new Square2(10);
+        console.log(`한변의 길이는 : ${square2.length}`)
+        console.log(`둘레는 : ${square2.perimeter}`)
+        console.log(`넓이는 : ${square2.area}`)
+        // 예외 발생
+        const squareA = new Square2(-10)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

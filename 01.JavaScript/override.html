@@ -1,0 +1,43 @@
+<!-- ! 치고 엔터 누르면 html 기본 설정이 나옴 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Override</title>
+    <script>
+        class LifeCycle {
+            call () {
+                this.a()
+                this.b()
+                this.c()
+            }
+
+            a() {console.log('a() 메소드 호출')}
+            b() {console.log('b() 메소드 호출')}
+            c() {console.log('c() 메소드 호출')}
+        }
+
+        // 인스턴스 생성
+        new LifeCycle().call();
+
+        class Pet {
+            constructor(name, age) {
+                this.name = name
+                this.age = age
+            }
+
+            toString() {
+                return `name : ${this.name}\n age : ${this.age}살`
+            }
+        }
+
+        const pet = new Pet('구름',6)
+        alert(pet)
+        console.log(pet+'')
+    </script>
+</head>
+<body>
+
+</body>
+</html>

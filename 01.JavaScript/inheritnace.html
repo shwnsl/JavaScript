@@ -1,0 +1,41 @@
+<!-- ! 치고 엔터 누르면 html 기본 설정이 나옴 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritnace</title>
+    <script>
+        class Rectangle {
+            constructor (w, h) {
+                this.w = w;
+                this.h = h;
+            }
+
+            getPerimeter() {
+                return 2 * (this.w + this.h)
+            }
+
+            getArea() {
+                return this.w * this.h
+            }
+        }
+        // 정사각영 클래스
+        class Square extends Rectangle {
+            // Square 클래스가 자식 클래스
+            constructor(l) {
+                super(l,l)
+                // 부모의 생성자 함수를 호출하는 코드
+            }
+        }
+
+        const square = new Square(10, 20);
+        // getPerimeter(), getArea() 메소드를 선언 하지 않았지만, 상속받아 사용 가능
+        console.log(`정사각형의 둘레 : ${square.getPerimeter()}`)
+        console.log(`정사각형의 넓이 : ${square.getArea()}`)
+    </script>
+</head>
+<body>
+
+</body>
+</html>
