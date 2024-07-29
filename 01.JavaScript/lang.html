@@ -1,0 +1,58 @@
+<!-- ! 치고 엔터 누르면 html 기본 설정이 나옴 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>끝말잇기</title>
+    <script>
+        window.onload = () => {
+            const input = document.querySelector('#input');
+            const btn = document.querySelector('#btn');
+            const p = document.querySelector('p');
+            let spans = document.querySelectorAll('span');
+            let span = document.createElement('span');
+            let words = [];
+            let preWords = spans[spans.length - 1];
+            const korean =  /^[가-힣]+$/;
+            
+            
+            function innit() {
+                const initial = prompt('단어를 등록해주세요')
+                
+                if(initial.length < 3) {
+                    alert('3글자 이상 입력')
+                    innit()
+                } else if (korean.test(initial) == false) {
+                    alert('한글이 아님')
+                    innit()
+                } else {
+                    console.log(initial)
+                    p.appendChild(span);          
+                    span.append(initial)          
+                }
+            }
+
+            function kmig() {
+                console.log(input.value.length)
+                if(input.value.length < 3) {
+                    alert('3글자 이상 입력')
+                } else if (korean.test(input.value) == false) {
+                    alert('한글이 아님')
+                } else if (preWords.substr(-1) != input.value.substr(0,1)) {
+                    alert('단어가 틀림')
+                } else {
+                    p.innerHTML += input.value;
+                }
+            }
+            innit();
+            btn.addEventListener('click', kmig)
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="input">
+    <button id="btn">입력</button><br>
+    <p></p>
+</body>
+</html>
