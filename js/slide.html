@@ -1,0 +1,31 @@
+<!-- ! 치고 엔터 누르면 html 기본 설정이 나옴 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slide</title>
+    <script defer src="./js/slide.js"></script>
+    <style>
+        .wrapper {width: 750px; margin: 0 auto; position: relative;}
+        #container {position: absolute;}
+        #container img {width: 100%;display: none;}
+        #container img.active {display: block;}
+        button{position: absolute; height: 100%;background-color: #000;top: 0;color: #fff;}
+        #prev{left: 0;}
+        #next{right: 0;}
+    </style>
+</head>
+<body>
+   <div class="wrapper">
+        <div id="container">
+            <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcY6zhPUyugu7P_L7JuCRMp-YjNgkbhXeEzXQt3g8ddq24u8uU99hhNstGr-TMGG5HklqaEU-uconFZyd8czcV79C0MLYUKjbUkIRCBI2WgsLOvkRO_pCzPeC9-i_9TRPm_TzpJLpc5LYMNFB75LkVzNB5L?key=69tJrL1WrLvnLcrLvLB3Bg" alt="" draggable="true" class="active">
+            <img src="https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/a2To/image/-4ZDMcKlWuZ11l5yCt_V-lzbDxM.jpeg" alt="" draggable="true">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_n7S-WSt1ZLsLQeMSx86k04u47r38hbQmdagFjjMadNjeAtcyhhf4o5we_Ga9UzbVja4&usqp=CAU" alt="" draggable="true">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ6QJoiWNvQlplaG5xrhzAk-KhqBxQhcnFmC5cN2Z-5Un_gulOnfVcTks3IIrb1OqTkoM&usqp=CAU" alt="" draggable="true">
+            <button id="prev">&lang;</button>
+            <button id="next">&rang;</button>
+        </div>
+   </div>
+</body>
+</html>
