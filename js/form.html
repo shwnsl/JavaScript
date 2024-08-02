@@ -1,0 +1,60 @@
+<!-- ! 치고 엔터 누르면 html 기본 설정이 나옴 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo</title>
+    <script defer src="./js/form.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <form id="form1">
+        아이디 : <input type="text" name="id" id="id">
+        비밀번호 : <input type="text" name="password" id="password">
+    </form>
+    <button onclick="myFn()">입력</button>
+    <button onclick="getInput()">확인</button>
+    <p id="show"></p>
+    <form name="order">
+        <ul>
+            <li>
+                <label for="billingName" class="field">이름 : </label>
+                <input type="text" class="input-box" id="billingName" name="billingName">
+            </li>
+            <li>
+                <label for="billingTel" class="field">연락처 : </label>
+                <input type="text" class="input-box" id="billingTel" name="billingTel">
+            </li>
+            <li>
+                <label for="billingAdress" class="field">주소 : </label>
+                <input type="text" class="input-box" id="billingAdress" name="billingAdress">
+            </li>
+        </ul>
+    </form>
+    <br>
+    <br>
+    <form name='ship'>
+        <ul>
+            <li>
+                <input type="text" id="shippingInfo" name="shippingInfo">
+                <label for="bill-info" class="check">주문 정보와 배송 정보가 같습니다</label>
+            </li>
+            <li>
+                <label for="shippingName" class="field">이름 : </label>
+                <input type="text" class="input-box" id="shippingName" name="shippingName">
+            </li>
+            <li>
+                <label for="shippingTel" class="field">연락처 : </label>
+                <input type="text" class="input-box" id="shippingTel" name="shippingTel">
+            </li>
+            <li>
+                <label for="shippingAdress" class="field">주소 : </label>
+                <input type="text" class="input-box" id="shippingAdress" name="shippingAdress">
+            </li>
+        </ul>
+    </form>
+</body>
+</html>

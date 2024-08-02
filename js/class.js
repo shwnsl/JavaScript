@@ -163,3 +163,33 @@ function Book(title, author, price) {
     this.price = price;
 }
 Book.prototype.year = '1929';
+
+class Person1 {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    hii() {
+        console.log(`안녕하세요, 제 이름은${this.name}이고, 나이는 ${this.age}살 입니다`)
+    }
+}
+const ans = new Person1('노주니',32)
+console.log(ans.hii())
+
+class Calculator {
+    static add(a, b) {
+        return a + b;
+    }
+    static minus(a,b) {
+        return a - b;
+    }
+    
+}
+console.log(Calculator.add(10,5))
+console.log(Calculator.minus(10,5))
+
+function Calculator2() {}
+Calculator2.add2 = (a,b) => {return a + b;}
+Calculator2.minus2 = (a,b) => {return a - b;}
+console.log(Calculator2.add2(20,7))
+console.log(Calculator2.minus2(20,7))
